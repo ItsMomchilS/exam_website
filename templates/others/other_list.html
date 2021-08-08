@@ -1,0 +1,20 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+    <h1 class='text-center'>All other sources</h1>
+    <div class="row">
+        <a href="{% url 'create source' %}" class="btn btn-primary">Create link</a>
+        {% for source in sources %}
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ source.image.url }}" class="card-img-top" alt="{{ source.name }}">
+                    <div class="card-body">
+                        <p>Link: <a href="{{ source.url }}" target="_blank">{{ source.name }}</a></p>
+                        <p class="card-text">{{ source.description }}</p>
+                        <a href="{% url 'source details' source.id %}" class="btn btn-primary">See details</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

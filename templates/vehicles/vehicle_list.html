@@ -1,0 +1,21 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+    <h1 class='text-center'>All vehicles list</h1>
+    <div class="row">
+        {% for vehicle in vehicles %}
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+                    <h5>{{ vehicle.ad_type }}</h5>
+                    <img src="{{ vehicle.image.url }}" class="card-img-top" alt="{{ vehicle.description }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ vehicle.vehicle_model }}, Creation year: {{ vehicle.create_year }}
+                            Price: {{ vehicle.price }}</h5>
+                        <p class="card-text">{{ vehicle.description }}</p>
+                        <a href="{% url 'vehicle details' vehicle.id %}" class="btn btn-primary">See details</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

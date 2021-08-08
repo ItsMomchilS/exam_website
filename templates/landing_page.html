@@ -1,0 +1,33 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron parent">
+            <img style="width: 100%"
+                 src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fmy.prostreetonline.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fselling-your-car.jpg&f=1&nofb=1"
+                 alt="">
+            <div class="absolute">
+                <h1 class="display-4">Welcome to Carworld</h1>
+                <p class="lead">Share your vehicles for sale.</p>
+                <hr class="my-4">
+                {% if not request.user.is_authenticated %}
+                    <div class="inner cover">
+                        <h1 class="cover-heading"></h1>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <p class="lead">Already have an account? <br><a href="{% url 'log in user' %}"
+                                                                                class="btn btn-lg btn-secondary">Log
+                                    in</a>
+                                </p>
+                            </div>
+                            <div class="col-lg-6">
+                                <p class="lead"> Do not have an account? <br>
+                                    <a href="{% url 'register user' %}" class="btn btn-lg btn-secondary">Register</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

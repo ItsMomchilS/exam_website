@@ -1,0 +1,22 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+    <div class="d-flex">
+        <div class="d-inline p-2 w-50">
+            <img src="{{ source.image.url }}" class="w-50 rounded mx-auto d-block">
+        </div>
+        <div class="d-inline p-2 w-50">
+            <div class="d-flex justify-content-between">
+                <h5><u>Link Name:</u> {{ source.name }}</h5>
+                <h5><u>Link to it:</u> {{ source.url }}</h5>
+            </div>
+            <p class="mt-2">Description: {{ source.description }}</p>
+            {% if is_owner %}
+                <div>
+                    <a href="{% url 'edit source' source.id %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'delete source' source.id %}" class="btn btn-danger">Delete</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
